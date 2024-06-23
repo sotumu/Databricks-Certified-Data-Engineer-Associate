@@ -83,11 +83,14 @@ VACUUM employees RETAIN 0 HOURS
 
 -- COMMAND ----------
 
+*********************SOTUMU NOTES*********************:
+  dont use in production, disabling retentioncheck for less than 7 days.
+
 SET spark.databricks.delta.retentionDurationCheck.enabled = false;
 
 -- COMMAND ----------
 
-VACUUM employees RETAIN 0 HOURS
+VACUUM employees RETAIN 0 HOURS --> only latest file was saved, and rest cleaned up.
 
 -- COMMAND ----------
 
