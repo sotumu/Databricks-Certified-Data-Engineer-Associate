@@ -48,6 +48,8 @@ SELECT count(*) FROM json.`${dataset.bookstore}/customers-json`
 -- MAGIC ## Querying text Format
 
 -- COMMAND ----------
+***************SOTUMU NOTES***************:
+ each row in file is one row.
 
 SELECT * FROM text.`${dataset.bookstore}/customers-json`
 
@@ -57,6 +59,8 @@ SELECT * FROM text.`${dataset.bookstore}/customers-json`
 -- MAGIC ## Querying binaryFile Format
 
 -- COMMAND ----------
+ ***************SOTUMU NOTES***************:
+ byte info is returned.
 
 SELECT * FROM binaryFile.`${dataset.bookstore}/customers-json`
 
@@ -67,11 +71,15 @@ SELECT * FROM binaryFile.`${dataset.bookstore}/customers-json`
 -- MAGIC ## Querying CSV 
 
 -- COMMAND ----------
+ ***************SOTUMU NOTES***************:
+ no schema is declared in this format, so we need to mention header/delimiter etc.
 
 SELECT * FROM csv.`${dataset.bookstore}/books-csv`
 
 -- COMMAND ----------
-
+***************SOTUMU NOTES***************:
+ NON-DELTA TABLE with CSV
+ 
 CREATE TABLE books_csv
   (book_id STRING, title STRING, author STRING, category STRING, price DOUBLE)
 USING CSV
@@ -144,6 +152,8 @@ SELECT * FROM json.`${dataset.bookstore}/customers-json`;
 DESCRIBE EXTENDED customers;
 
 -- COMMAND ----------
+***************SOTUMU NOTES***************:
+ CTAS(emphasis on AS) with csv creates delta tables but not parsed, so we use views.
 
 CREATE TABLE books_unparsed AS
 SELECT * FROM csv.`${dataset.bookstore}/books-csv`;
