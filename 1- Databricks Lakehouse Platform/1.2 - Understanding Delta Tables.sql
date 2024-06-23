@@ -109,6 +109,9 @@ DESCRIBE HISTORY employees
 
 -- COMMAND ----------
 
+********************SOTUMU NOTES********************:
+The below command is to read the file, like cat.
+
 -- MAGIC %fs head 'dbfs:/user/hive/warehouse/employees/_delta_log/00000000000000000005.json'
 
 -- COMMAND ----------
